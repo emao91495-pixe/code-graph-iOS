@@ -1,0 +1,44 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+
+# Runtime artifacts
+bm25_index.pkl
+logs/
+*.log
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+.build/
+
+# Swift build
+src/parser/swift_syntax_extractor/.build/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Neo4j
+neo4j_data/
+neo4j_logs/
+
+# Claude Code (auto-generated local permissions)
+.claude/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage

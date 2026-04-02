@@ -1,0 +1,29 @@
+# AST 解析
+# Swift: SwiftSyntax CLI (src/parser/swift_syntax_extractor/)，无 Python 依赖
+# ObjC:  libclang Python bindings（Xcode 自带 libclang.dylib）
+libclang==18.1.1
+# tree-sitter 保留为回退（可选）
+# tree-sitter==0.21.3
+# tree-sitter-swift==0.0.1
+# tree-sitter-objc==3.0.2
+
+# 图数据库
+neo4j==5.26.0
+
+# Web 框架
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# 搜索
+rank-bm25==0.2.2
+openai>=1.0.0      # DashScope text-embedding (OpenAI API compatible)
+requests>=2.28.0   # DashScope native API calls
+
+# 文件监听
+watchdog==6.0.0
+
+# 工具库
+pyyaml==6.0.2
+click==8.1.8
+gitpython==3.1.44
+tqdm==4.67.1

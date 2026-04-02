@@ -1,0 +1,50 @@
+# Code Intelligence Graph - Configuration
+# Copy this file, then set workspace.path to your iOS project root.
+
+workspace:
+  path: /path/to/your/ios/project   # REQUIRED: absolute path to your iOS workspace
+  exclude:
+    - Pods/
+    - .git/
+    - .build/
+    - "*.xcodeproj/"
+    - "*.xcworkspace/"
+    - "*.framework/"
+    - "*.xcframework/"
+    - build/
+    - DerivedData/
+  include_extensions:
+    - .swift
+    - .m
+
+neo4j:
+  uri: bolt://localhost:7687
+  user: neo4j
+  password: codegraph123
+  database: neo4j
+
+graph_api:
+  host: 0.0.0.0
+  port: 8080
+
+pipeline:
+  max_workers: 4           # parallel file parsing workers
+  batch_size: 50           # files per batch
+  max_file_size_kb: 300    # files larger than this skip call extraction (but still index definitions)
+
+# Hybrid search: DashScope embedding + BM25 RRF fusion
+# Set api_key via DASHSCOPE_API_KEY env var or in this file
+embedding:
+  model: qwen3-vl-embedding
+  dims: 2560
+  batch_size: 10
+  # api_key: your-dashscope-api-key-here
+
+# Retention policy
+retention:
+  base_graph_days: 30      # keep base graph for 30 days
+  max_active_overlays: 50  # max number of active branch overlays
+
+logging:
+  level: INFO
+  file: logs/code-graph.log

@@ -1,0 +1,62 @@
+# domain_mapping.yaml
+#
+# Maps directory path prefixes to logical domain names.
+# The system uses longest-prefix matching, so more specific paths
+# take precedence over shorter ones.
+#
+# Quick start: generate a starter mapping from your project structure:
+#   python scripts/generate_domain_mapping.py --workspace /path/to/your/ios/project
+#
+# Even without any mapping entries, the tool works — it automatically derives
+# the domain from each file's top-level directory under the workspace.
+# Add entries here to override or refine those auto-detected domains.
+
+mappings:
+  # ── Common iOS patterns — uncomment and customize for your project ──────────
+
+  # Networking layer
+  # YourApp/Network/:              networking
+  # YourApp/API/:                  networking
+  # YourApp/HTTP/:                 networking
+  # YourApp/Services/:             networking
+
+  # Authentication
+  # YourApp/Auth/:                 auth
+  # YourApp/Login/:                auth
+  # YourApp/Account/:              auth
+
+  # Data / persistence
+  # YourApp/Data/:                 data
+  # YourApp/Database/:             data
+  # YourApp/Storage/:              data
+  # YourApp/CoreData/:             data
+
+  # UI / presentation
+  # YourApp/UI/:                   ui
+  # YourApp/Views/:                ui
+  # YourApp/ViewControllers/:      ui
+  # YourApp/Screens/:              ui
+
+  # Navigation / routing
+  # YourApp/Navigation/:           navigation
+  # YourApp/Router/:               navigation
+  # YourApp/Coordinator/:          navigation
+
+  # Utilities / shared
+  # YourApp/Utils/:                utilities
+  # YourApp/Extensions/:           utilities
+  # YourApp/Helpers/:              utilities
+  # YourApp/Common/:               utilities
+
+  # Analytics / tracking
+  # YourApp/Analytics/:            analytics
+  # YourApp/Tracking/:             analytics
+  # YourApp/Logging/:              analytics
+
+  # Push notifications
+  # YourApp/Push/:                 push
+  # YourApp/Notifications/:        push
+
+  # App entry / lifecycle
+  # YourApp/AppDelegate/:          app
+  # YourApp/SceneDelegate/:        app
