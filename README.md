@@ -31,12 +31,14 @@ Source Code (.swift / .m)
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/code-intelligence-graph
-cd code-intelligence-graph
+git clone https://github.com/emao91495-pixe/code-graph-iOS.git
+cd code-graph-iOS
 
 # 2. Configure your workspace
 cp .env.example .env
-# Edit .env: set WORKSPACE_PATH to your iOS project root
+# Edit .env:
+#   WORKSPACE_PATH=/absolute/path/to/your/ios/project   (required)
+#   DASHSCOPE_API_KEY=sk-your-dashscope-api-key          (required, for hybrid search)
 
 # 3. Generate a domain mapping (optional but recommended)
 python scripts/generate_domain_mapping.py --workspace /path/to/your/ios/project
@@ -44,12 +46,14 @@ python scripts/generate_domain_mapping.py --workspace /path/to/your/ios/project
 # 4. Start services
 docker compose up -d
 
-# 5. Build the graph
+# 5. Build the graph (all 7 phases including embedding)
 docker compose exec graph-api python cli.py build
 
 # 6. Open the dashboard
 open http://localhost:8080/dashboard
 ```
+
+> **DashScope API Key**: Hybrid search (Phase 7) requires a DashScope API key. Get one at [https://dashscope.console.aliyun.com/](https://dashscope.console.aliyun.com/), then set `DASHSCOPE_API_KEY` in your `.env` file.
 
 ## Configure Claude Code (MCP)
 
@@ -140,15 +144,13 @@ embedding:
   # api_key: your-dashscope-api-key  (or set DASHSCOPE_API_KEY env var)
 ```
 
-### Hybrid Search (Optional)
+### Hybrid Search Setup
 
-By default, search uses BM25 only. To enable hybrid search with vector embeddings:
+Search uses BM25 + vector embedding hybrid mode (RRF fusion). You need a DashScope API key for the full pipeline to work:
 
 1. Get a DashScope API key at [https://dashscope.console.aliyun.com/](https://dashscope.console.aliyun.com/)
-2. Set the key: `export DASHSCOPE_API_KEY=sk-your-key` (or add it to `config.yaml` / `.env`)
-3. Rebuild the graph: `python cli.py build` — Phase 7 will generate embeddings automatically
-
-If no API key is configured, Phase 7 is skipped and search falls back to BM25-only mode.
+2. Set the key in `.env`: `DASHSCOPE_API_KEY=sk-your-key` (or in `config.yaml` under `embedding.api_key`, or as environment variable)
+3. Build (or rebuild) the graph: `python cli.py build` — Phase 7 will generate embeddings automatically
 
 See [docs/setup.md](docs/setup.md) for non-Docker installation and [docs/operations-guide.md](docs/operations-guide.md) for the full operations manual.
 

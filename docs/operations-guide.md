@@ -31,12 +31,14 @@
 If you just want to get running as fast as possible:
 
 ```bash
-git clone <this-repo-url>
-cd code-intelligence-graph
+git clone https://github.com/emao91495-pixe/code-graph-iOS.git
+cd code-graph-iOS
 
-# Point to your iOS project
+# Configure
 cp .env.example .env
-# Edit .env → set WORKSPACE_PATH=/path/to/your/ios/project
+# Edit .env:
+#   WORKSPACE_PATH=/path/to/your/ios/project       (required)
+#   DASHSCOPE_API_KEY=sk-your-dashscope-api-key     (required, for hybrid search)
 
 # Start Neo4j + API + Watcher
 docker compose up -d
@@ -254,7 +256,7 @@ When done, you'll see a JSON summary:
 
 A few `parse_errors` is normal (generated code, unusual syntax, etc.).
 
-> **Note:** Phase 7 (embedding) is automatically skipped if you haven't set a `DASHSCOPE_API_KEY`. This is fine — BM25 search works without it. See [Section 8](#8-enable-hybrid-search-optional) to enable it later.
+> **Note:** Phase 7 (embedding) requires `DASHSCOPE_API_KEY` to be set. If you see "Phase 7: skipped", go back and configure the API key in `.env`, then rebuild.
 
 ---
 
@@ -457,9 +459,9 @@ python cli.py query call-chain NewClass.newMethod --branch feature/my-feature
 
 ---
 
-## 8. Enable Hybrid Search (Optional)
+## 8. Hybrid Search Configuration
 
-By default, `cig_search` uses BM25 (keyword matching). You can optionally enable **hybrid search** which adds vector embeddings for better semantic matching. This makes search more accurate, especially for natural language queries.
+`cig_search` uses BM25 + vector embedding hybrid mode. This requires a DashScope API key to generate embeddings (Phase 7 of the build pipeline).
 
 ### How it works
 
@@ -668,7 +670,7 @@ If `graph-api` fails, it's usually because Neo4j isn't ready yet. Wait for Neo4j
 
 ### Phase 7 shows "skipped"
 
-This is expected if you haven't set `DASHSCOPE_API_KEY`. Search works fine without it (BM25 only). See [Section 8](#8-enable-hybrid-search-optional) to enable it.
+This means `DASHSCOPE_API_KEY` is not set. Configure it in `.env` or as an environment variable, then rebuild with `python cli.py build`. See [Section 8](#8-hybrid-search-configuration).
 
 ---
 
