@@ -1,6 +1,22 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="Code Graph for iOS" width="100%"/>
+</p>
+
+<p align="center">
+  <strong>Turn your Swift & Objective-C codebase into a queryable call graph</strong>
+</p>
+
+<p align="center">
+  <a href="#quick-start-docker"><img src="https://img.shields.io/badge/Quick_Start-Docker-2496ED?style=flat-square&logo=docker" alt="Docker"/></a>
+  <a href="docs/operations-guide.md"><img src="https://img.shields.io/badge/Docs-Operations_Guide-blue?style=flat-square" alt="Docs"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"/></a>
+</p>
+
+---
+
 # Code Intelligence Graph
 
-A code analysis system for iOS projects (Swift / Objective-C) that parses your codebase into a [Neo4j](https://neo4j.com/) graph database and exposes 7 MCP tools for Claude to query call chains, impact scopes, and semantic search.
+A code analysis system for iOS projects (Swift / Objective-C) that parses your codebase into a [Neo4j](https://neo4j.com/) graph database and exposes 5 MCP tools for Claude to query call chains, impact scopes, and semantic search.
 
 ```
 Source Code (.swift / .m)

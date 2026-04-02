@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27"/>
+      <stop offset="50%" style="stop-color:#111940"/>
+      <stop offset="100%" style="stop-color:#0a0e27"/>
+    </linearGradient>
+    <!-- Accent gradients -->
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#fb923c"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#c084fc"/>
+    </linearGradient>
+    <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#818cf8;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8"/>
+    </linearGradient>
+    <linearGradient id="swiftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f05138"/>
+      <stop offset="100%" style="stop-color:#f77d6e"/>
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Dot pattern -->
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="#334155" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="400" fill="url(#dots)"/>
+
+  <!-- Decorative grid lines -->
+  <line x1="0" y1="100" x2="1200" y2="100" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="200" x2="1200" y2="200" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="300" x2="1200" y2="300" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- ==================== GRAPH NETWORK (left side) ==================== -->
+
+  <!-- Edges (drawn first, behind nodes) -->
+  <!-- Cluster 1 edges -->
+  <line x1="120" y1="130" x2="200" y2="80" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+  <line x1="120" y1="130" x2="80" y2="200" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+  <line x1="120" y1="130" x2="190" y2="180" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
+  <line x1="200" y1="80" x2="280" y2="120" stroke="#6366f1" stroke-width="1.2" opacity="0.4"/>
+  <line x1="80" y1="200" x2="150" y2="260" stroke="#6366f1" stroke-width="1.2" opacity="0.4"/>
+  <line x1="190" y1="180" x2="280" y2="120" stroke="#6366f1" stroke-width="1.2" opacity="0.4"/>
+  <line x1="190" y1="180" x2="150" y2="260" stroke="#6366f1" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- Cross-cluster edges (prominent) -->
+  <line x1="280" y1="120" x2="370" y2="170" stroke="url(#edgeGlow)" stroke-width="2" opacity="0.7" filter="url(#glow)"/>
+  <line x1="150" y1="260" x2="320" y2="290" stroke="url(#edgeGlow)" stroke-width="2" opacity="0.7" filter="url(#glow)"/>
+
+  <!-- Cluster 2 edges -->
+  <line x1="370" y1="170" x2="420" y2="100" stroke="#06b6d4" stroke-width="1.5" opacity="0.5"/>
+  <line x1="370" y1="170" x2="320" y2="290" stroke="#06b6d4" stroke-width="1.5" opacity="0.5"/>
+  <line x1="370" y1="170" x2="440" y2="250" stroke="#06b6d4" stroke-width="1.5" opacity="0.5"/>
+  <line x1="420" y1="100" x2="440" y2="250" stroke="#06b6d4" stroke-width="1.2" opacity="0.4"/>
+  <line x1="320" y1="290" x2="440" y2="250" stroke="#06b6d4" stroke-width="1.2" opacity="0.4"/>
+  <line x1="320" y1="290" x2="260" y2="340" stroke="#06b6d4" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- Scattered outer nodes edges -->
+  <line x1="50" y1="70" x2="120" y2="130" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+  <line x1="40" y1="310" x2="80" y2="200" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+  <line x1="440" y1="250" x2="480" y2="330" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+  <line x1="420" y1="100" x2="470" y2="50" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+
+  <!-- ===== NODES ===== -->
+  <!-- Cluster 1 - Indigo (Functions) -->
+  <circle cx="120" cy="130" r="12" fill="url(#accent1)" filter="url(#glow)" opacity="0.95"/>
+  <circle cx="200" cy="80" r="9" fill="url(#accent1)" filter="url(#glow)" opacity="0.85"/>
+  <circle cx="80" cy="200" r="8" fill="url(#accent1)" filter="url(#glow)" opacity="0.8"/>
+  <circle cx="190" cy="180" r="10" fill="url(#accent1)" filter="url(#glow)" opacity="0.9"/>
+  <circle cx="280" cy="120" r="11" fill="url(#accent1)" filter="url(#glow)" opacity="0.9"/>
+  <circle cx="150" cy="260" r="9" fill="url(#accent1)" filter="url(#glow)" opacity="0.85"/>
+
+  <!-- Cluster 2 - Cyan (Classes) -->
+  <circle cx="370" cy="170" r="13" fill="url(#accent3)" filter="url(#glow)" opacity="0.95"/>
+  <circle cx="420" cy="100" r="9" fill="url(#accent3)" filter="url(#glow)" opacity="0.85"/>
+  <circle cx="320" cy="290" r="10" fill="url(#accent3)" filter="url(#glow)" opacity="0.9"/>
+  <circle cx="440" cy="250" r="8" fill="url(#accent3)" filter="url(#glow)" opacity="0.8"/>
+  <circle cx="260" cy="340" r="7" fill="url(#accent3)" filter="url(#glow)" opacity="0.75"/>
+
+  <!-- Scattered outer nodes (smaller, faded) -->
+  <circle cx="50" cy="70" r="5" fill="url(#accent4)" opacity="0.5"/>
+  <circle cx="40" cy="310" r="4" fill="url(#accent4)" opacity="0.4"/>
+  <circle cx="480" cy="330" r="5" fill="url(#accent4)" opacity="0.5"/>
+  <circle cx="470" cy="50" r="4" fill="url(#accent4)" opacity="0.4"/>
+  <circle cx="30" cy="160" r="3" fill="#6366f1" opacity="0.3"/>
+  <circle cx="500" cy="170" r="3" fill="#06b6d4" opacity="0.3"/>
+
+  <!-- Node labels (tiny, subtle) -->
+  <text x="120" y="155" font-family="SF Mono, Monaco, monospace" font-size="8" fill="#94a3b8" text-anchor="middle" opacity="0.6">viewDidLoad()</text>
+  <text x="280" y="143" font-family="SF Mono, Monaco, monospace" font-size="8" fill="#94a3b8" text-anchor="middle" opacity="0.6">fetchData()</text>
+  <text x="370" y="195" font-family="SF Mono, Monaco, monospace" font-size="8" fill="#94a3b8" text-anchor="middle" opacity="0.6">NetworkClient</text>
+  <text x="200" y="67" font-family="SF Mono, Monaco, monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.5">setupUI()</text>
+  <text x="420" y="88" font-family="SF Mono, Monaco, monospace" font-size="7" fill="#94a3b8" text-anchor="middle" opacity="0.5">request()</text>
+
+  <!-- ==================== TITLE AREA (right side) ==================== -->
+
+  <!-- Swift icon -->
+  <g transform="translate(600, 95)">
+    <rect x="0" y="0" width="44" height="44" rx="10" fill="url(#swiftGrad)" opacity="0.9"/>
+    <path d="M31.2 14.5c0-.1-.1-.1 0 0-.1-.1-.1-.1 0 0-4.4 3-8.3 7.4-11 11.5 2.4-3.3 5.4-6.2 8.8-8.5-3.4 2.5-7.2 6.3-10.1 10.6-.1.1-.1.2-.2.3 0 0 0 .1-.1.1.8-.3 5.4-2.1 8.3-4.4-2 2.8-4.6 5.3-7.5 7.5 1.3.5 2.8.7 4.3.5 5.3-.7 10.3-4.5 12.3-9.6.3-.8.5-1.6.6-2.4.3-2-.3-3.8-1.5-5.1-.1-.2-.2-.3-.4-.4-.2-.2-.3-.3-.5-.4-.7-.5-1.6-.7-2.5-.5-.2 0-.4.1-.5.2" fill="white" transform="scale(0.7) translate(6, 6)"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="660" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="white" letter-spacing="-1">
+    Code Graph
+  </text>
+  <text x="660" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="32" font-weight="300" fill="#94a3b8" letter-spacing="0">
+    for iOS
+  </text>
+
+  <!-- Tagline -->
+  <text x="660" y="215" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#64748b" letter-spacing="0.5">
+    Turn your Swift &amp; Objective-C codebase into a queryable call graph
+  </text>
+
+  <!-- Feature badges -->
+  <!-- Badge 1: Neo4j -->
+  <rect x="660" y="245" width="120" height="30" rx="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="678" cy="260" r="4" fill="#06b6d4"/>
+  <text x="690" y="265" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#94a3b8">Neo4j Graph</text>
+
+  <!-- Badge 2: MCP -->
+  <rect x="792" y="245" width="130" height="30" rx="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="810" cy="260" r="4" fill="#6366f1"/>
+  <text x="822" y="265" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#94a3b8">5 MCP Tools</text>
+
+  <!-- Badge 3: Hybrid Search -->
+  <rect x="934" y="245" width="150" height="30" rx="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="952" cy="260" r="4" fill="#f97316"/>
+  <text x="964" y="265" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#94a3b8">Hybrid Search</text>
+
+  <!-- Pipeline flow -->
+  <g transform="translate(660, 300)">
+    <text x="0" y="0" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#475569" letter-spacing="0.5">
+      .swift  .m
+    </text>
+    <text x="90" y="0" font-family="-apple-system, sans-serif" font-size="13" fill="#334155">&#x2192;</text>
+    <text x="110" y="0" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#6366f1" letter-spacing="0.5">
+      Parse
+    </text>
+    <text x="162" y="0" font-family="-apple-system, sans-serif" font-size="13" fill="#334155">&#x2192;</text>
+    <text x="182" y="0" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#a855f7" letter-spacing="0.5">
+      Resolve
+    </text>
+    <text x="256" y="0" font-family="-apple-system, sans-serif" font-size="13" fill="#334155">&#x2192;</text>
+    <text x="276" y="0" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#06b6d4" letter-spacing="0.5">
+      Graph
+    </text>
+    <text x="332" y="0" font-family="-apple-system, sans-serif" font-size="13" fill="#334155">&#x2192;</text>
+    <text x="352" y="0" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#f97316" letter-spacing="0.5">
+      Search
+    </text>
+    <text x="416" y="0" font-family="-apple-system, sans-serif" font-size="13" fill="#334155">&#x2192;</text>
+    <text x="436" y="0" font-family="SF Mono, Monaco, Consolas, monospace" font-size="13" fill="#22c55e" letter-spacing="0.5">
+      Claude
+    </text>
+  </g>
+
+  <!-- Bottom subtle line -->
+  <rect x="660" y="330" width="480" height="1" fill="#1e293b" opacity="0.5"/>
+  <text x="660" y="355" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#475569">
+    7-Phase Pipeline  &#x2022;  SwiftSyntax + libclang  &#x2022;  BM25 + Vector RRF  &#x2022;  Real-time Watcher
+  </text>
+</svg>
